@@ -42,14 +42,14 @@ public class BankingAppGUI {
     static BankDetails[] accounts = new BankDetails[100];
     static int accountCount = 0;
 
-    // Define colors for dark theme
+
     static Color backgroundColor = new Color(45, 45, 45);
     static Color foregroundColor = new Color(225, 225, 225);
     static Color buttonColor = new Color(75, 75, 75);
     static Color textFieldColor = new Color(60, 60, 60);
     static Color selectedButtonColor = new Color(100, 100, 100);
 
-    static String selectedAccountType = "Savings"; // Default account type
+    static String selectedAccountType = "Savings"; 
 
     public static void main(String[] args) {
         try {
@@ -63,7 +63,6 @@ public class BankingAppGUI {
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(backgroundColor);
 
-        // Components
         JPanel panel = new JPanel(new GridBagLayout());
         panel.setBackground(backgroundColor);
         panel.setBorder(BorderFactory.createEmptyBorder(20, 20, 20, 20));
@@ -113,7 +112,6 @@ public class BankingAppGUI {
         JButton depositBtn = createButton("Deposit");
         JButton withdrawBtn = createButton("Withdraw");
 
-        // Add components to panel
         gbc.gridx = 0; gbc.gridy = 0; panel.add(accNoLabel, gbc);
         gbc.gridx = 1; gbc.gridy = 0; panel.add(accNoField, gbc);
         gbc.gridx = 0; gbc.gridy = 1; panel.add(nameLabel, gbc);
@@ -130,7 +128,6 @@ public class BankingAppGUI {
         frame.add(panel, BorderLayout.NORTH);
         frame.add(scrollPane, BorderLayout.CENTER);
 
-        // Event handling for Add Account
         addAccountBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String accno = accNoField.getText();
@@ -162,7 +159,6 @@ public class BankingAppGUI {
             }
         });
 
-        // Event handling for Search Account
         searchBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String accno = JOptionPane.showInputDialog("Enter Account No to Search:");
@@ -180,7 +176,6 @@ public class BankingAppGUI {
             }
         });
 
-        // Event handling for Deposit
         depositBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String accno = JOptionPane.showInputDialog("Enter Account No:");
@@ -204,7 +199,6 @@ public class BankingAppGUI {
             }
         });
 
-        // Event handling for Withdraw
         withdrawBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 String accno = JOptionPane.showInputDialog("Enter Account No:");
@@ -241,14 +235,14 @@ public class BankingAppGUI {
         JTextField textField = new JTextField();
         textField.setBackground(textFieldColor);
         textField.setForeground(foregroundColor);
-        textField.setCaretColor(foregroundColor); // Set caret color
+        textField.setCaretColor(foregroundColor); 
         return textField;
     }
 
     private static JButton createButton(String text) {
         JButton button = new JButton(text);
         button.setBackground(buttonColor);
-        button.setForeground(Color.BLACK); // Change text color to white
+        button.setForeground(Color.BLACK); 
         return button;
     }
 }
