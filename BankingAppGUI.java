@@ -42,7 +42,6 @@ public class BankingAppGUI {
     static BankDetails[] accounts = new BankDetails[100];
     static int accountCount = 0;
 
-
     static Color backgroundColor = new Color(45, 45, 45);
     static Color foregroundColor = new Color(225, 225, 225);
     static Color buttonColor = new Color(75, 75, 75);
@@ -62,6 +61,11 @@ public class BankingAppGUI {
         frame.setSize(500, 400);
         frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         frame.getContentPane().setBackground(backgroundColor);
+
+        JLabel headingLabel = new JLabel("Banking System", SwingConstants.CENTER);
+        headingLabel.setForeground(foregroundColor);
+        headingLabel.setFont(new Font("SansSerif", Font.BOLD, 24));
+        frame.add(headingLabel, BorderLayout.NORTH);
 
         JPanel panel = new JPanel(new GridBagLayout());
         panel.setBackground(backgroundColor);
@@ -125,8 +129,8 @@ public class BankingAppGUI {
         gbc.gridx = 0; gbc.gridy = 5; panel.add(depositBtn, gbc);
         gbc.gridx = 1; gbc.gridy = 5; panel.add(withdrawBtn, gbc);
 
-        frame.add(panel, BorderLayout.NORTH);
-        frame.add(scrollPane, BorderLayout.CENTER);
+        frame.add(panel, BorderLayout.CENTER);
+        frame.add(scrollPane, BorderLayout.SOUTH);
 
         addAccountBtn.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
